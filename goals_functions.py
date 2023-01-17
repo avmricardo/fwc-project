@@ -59,7 +59,7 @@ def max_min(lista: list) -> list:
 
 if __name__ == '__main__':
     """
-    Testando as funcoes
+    Testando as funcoes criadas
     """
     import datas as dt
     datas = pd.read_csv("FWC_data.csv")
