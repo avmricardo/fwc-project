@@ -1,4 +1,3 @@
 *.zip
 **__pycache__
-teste.py
 dash_test.py
