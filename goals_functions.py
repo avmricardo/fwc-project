@@ -43,20 +43,6 @@ def razoes_gols_selecoes(df: pd.DataFrame, selecoes: list) -> list:
     return razoes
 
 
-def max_min(lista: list) -> list:
-    """
-    Funcao para calular o valor maximo e minimo de uma lista
-    """
-    max = -9999
-    min = 9999
-    for i in lista:
-        if i > max:
-            max = i
-        if i < min:
-            min = i
-    return [max, min]
-
-
 def ordenar_lista(lista: list) -> list:
     """
     Função para ordenar a lista com as tuplas contendo as seleções e suas razões de gols
@@ -77,10 +63,6 @@ if __name__ == '__main__':
     """
     import datas as dt
     datas = pd.read_csv("FWC_data.csv")
-    for i in range(32):
+    for i in range(len(dt.selecoes)):
         print(dt.selecoes[i], end=" ")
         print(razoes_gols_selecoes(datas, dt.selecoes)[i])
-
-    print("max():", max(razoes_gols_selecoes(datas, dt.selecoes)))
-    print("min():", min(razoes_gols_selecoes(datas, dt.selecoes)))
-    print("max_min():", max_min(razoes_gols_selecoes(datas, dt.selecoes)))
