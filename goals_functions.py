@@ -4,7 +4,7 @@ Arquivo com as funcoes criadas que foram utilizadas
 import pandas as pd
 
 
-def gols(df: pd.DataFrame, team: str) -> float:
+def razoes_gols(df: pd.DataFrame, team: str) -> float:
     """
     Args:
         df: DataFrame da copa do mundo
@@ -29,7 +29,7 @@ def gols(df: pd.DataFrame, team: str) -> float:
     return razao
 
 
-def gols_selecoes(df: pd.DataFrame, selecoes: list) -> list:
+def razoes_gols_selecoes(df: pd.DataFrame, selecoes: list) -> list:
     """
     Args:
         df: DataFrame da copa do mundo
@@ -39,7 +39,7 @@ def gols_selecoes(df: pd.DataFrame, selecoes: list) -> list:
     """
     razoes = []
     for selecao in selecoes:
-        razoes.append(gols(df, selecao))
+        razoes.append(razoes_gols(df, selecao))
     return razoes
 
 
@@ -57,6 +57,20 @@ def max_min(lista: list) -> list:
     return [max, min]
 
 
+def ordenar_lista(lista: list) -> list:
+    """
+    Função para ordenar a lista com as tuplas contendo as seleções e suas razões de gols
+    """
+    tamanho = len(lista)
+    for i in range(tamanho):
+        for j in range(i, tamanho):
+            if lista[i][1] > lista[j][1]:
+                auxiliar = lista[i]
+                lista[i] = lista[j]
+                lista[j] = auxiliar
+    return lista
+
+
 if __name__ == '__main__':
     """
     Testando as funcoes criadas
@@ -65,8 +79,8 @@ if __name__ == '__main__':
     datas = pd.read_csv("FWC_data.csv")
     for i in range(32):
         print(dt.selecoes[i], end=" ")
-        print(gols_selecoes(datas, dt.selecoes)[i])
+        print(razoes_gols_selecoes(datas, dt.selecoes)[i])
 
-    print("max():", max(gols_selecoes(datas, dt.selecoes)))
-    print("min():", min(gols_selecoes(datas, dt.selecoes)))
-    print("max_min():", max_min(gols_selecoes(datas, dt.selecoes)))
+    print("max():", max(razoes_gols_selecoes(datas, dt.selecoes)))
+    print("min():", min(razoes_gols_selecoes(datas, dt.selecoes)))
+    print("max_min():", max_min(razoes_gols_selecoes(datas, dt.selecoes)))
