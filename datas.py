@@ -1,7 +1,6 @@
 """
 Arquivo com dados do grupos e das rodadas da copa
 """
-import numpy as np
 import pandas as pd
 
 data = pd.read_csv("FWC_data.csv")
@@ -18,21 +17,13 @@ third_place.index = range(1)
 final = data[63:]
 final.index = range(1)
 
-groupA = np.array(["QATAR", "ECUADOR", "SENEGAL", "NETHERLANDS"])
-groupB = np.array(["ENGLAND", "IRAN", "UNITED STATES", "WALES"])
-groupC = np.array(["ARGENTINA", "SAUDI ARABIA", "MEXICO", "POLAND"])
-groupD = np.array(["FRANCE", "AUSTRALIA", "DENMARK", "TUNISIA"])
-groupE = np.array(["SPAIN", "COSTA RICA", "GERMANY", "JAPAN"])
-groupF = np.array(["BELGIUM", "CANADA", "MOROCCO", "CROATIA"])
-groupG = np.array(["BRAZIL", "SERBIA", "SWITZERLAND", "CAMEROON"])
-groupH = np.array(["PORTUGAL", "GHANA", "URUGUAY", "KOREA REPUBLIC"])
-groups = {
-    "Grupo A": groupA,
-    "Grupo B": groupB,
-    "Grupo C": groupC,
-    "Grupo D": groupD,
-    "Grupo E": groupE,
-    "Grupo F": groupF,
-    "Grupo G": groupG,
-    "Grupo H": groupH
-}
+groupA = ["QATAR", "ECUADOR", "SENEGAL", "NETHERLANDS"]
+groupB = ["ENGLAND", "IRAN", "UNITED STATES", "WALES"]
+groupC = ["ARGENTINA", "SAUDI ARABIA", "MEXICO", "POLAND"]
+groupD = ["FRANCE", "AUSTRALIA", "DENMARK", "TUNISIA"]
+groupE = ["SPAIN", "COSTA RICA", "GERMANY", "JAPAN"]
+groupF = ["BELGIUM", "CANADA", "MOROCCO", "CROATIA"]
+groupG = ["BRAZIL", "SERBIA", "SWITZERLAND", "CAMEROON"]
+groupH = ["PORTUGAL", "GHANA", "URUGUAY", "KOREA REPUBLIC"]
+
+selecoes = groupA + groupB + groupC + groupD + groupE + groupF + groupG + groupH
