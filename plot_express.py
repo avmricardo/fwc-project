@@ -4,8 +4,9 @@ import goals_functions as func
 import plotly.express as px
 
 df = pd.read_csv("FWC_data.csv")
+valores = df.values.tolist()
 
-total = list(zip(dt.selecoes, func.razoes_gols_selecoes(df, dt.selecoes)))
+total = list(zip(dt.selecoes, func.razoes_gols_selecoes(valores, dt.selecoes)))
 total = func.ordenar_lista(total)
 
 paises = []
