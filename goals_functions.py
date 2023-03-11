@@ -14,6 +14,7 @@ def selecoes(valores: list) -> list:
     times = []
     for jogos in valores:
         times.append(jogos[0])
+        times.append(jogos[1])
     set_times = set(times)
     selecoes = list(set_times)
     return selecoes
@@ -45,6 +46,8 @@ def razoes_gols(valores: list, team: str) -> float:
         elif time2[i] == team:
             gols_feitos += gols2[i]
             gols_tomados += gols1[i]
+    if gols_tomados == 0:
+        return gols_feitos
     razao = gols_feitos / gols_tomados
     return razao
 

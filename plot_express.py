@@ -3,10 +3,7 @@ import datas as dt
 import goals_functions as func
 import plotly.express as px
 
-df = pd.read_csv("FWC_data.csv")
-valores = df.values.tolist()
-
-total = list(zip(dt.selecoes, func.razoes_gols_selecoes(valores, dt.selecoes)))
+total = list(zip(dt.selecoes, func.razoes_gols_selecoes(dt.valores, dt.selecoes)))
 total = func.ordenar_lista(total)
 
 paises = []
@@ -16,5 +13,5 @@ for i in total:
     razoes.append(i[1])
 
 fig = px.funnel(labels={"x": "Razões", "y": "Países"}, x=razoes, y=paises,
-                title="Razões entre gols feitos e gols tomados por seleções")
+                title="Razões entre gols feitos e gols tomados por seleções durante toda a copa do mundo")
 fig.show()
